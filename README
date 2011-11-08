@@ -1,0 +1,58 @@
+NAME
+    DateTimeX::Format::Ago - I should have written this module "3 years ago"
+
+SYNOPSIS
+      my $then = DateTime->now->subtract(days => 3);
+      say DateTimeX::Format::Ago->format_datetime($then); # "3 days ago"
+
+DESCRIPTION
+    Ever wished DateTime::Format::Natural had a "format_datetime" method?
+    This module provides human-friendly datetime formatting, outputting
+    strings like "3 days ago".
+
+    Primary use case: websites that show a list of a person's recent
+    activities.
+
+  Constructor
+    "new(language => $lang)"
+        Creates a formatter object for the given language (a BCP47 language
+        code). If the language is omitted, extracts it from $ENV{LANG}.
+
+        Decent English ('en'), German ('de') and French ('fr') support is
+        provided. Portuguese ('pt') and Castillian Spanish ('es') are also
+        provided, but some of the strings were translated with Google
+        Translate, so they might not be perfect.
+
+  Methods
+    "format_datetime($dt)"
+        Returns something like "3 days ago", "just now" or "hace un año".
+
+    "parse_datetime($string)"
+        Croaks. Don't use this.
+
+BUGS
+    Please report any bugs to
+    <http://rt.cpan.org/Dist/Display.html?Queue=DateTimeX-Format-Ago>.
+
+    I'm actively seeking translations. Feel free to attach patches for other
+    languages as bug reports.
+
+SEE ALSO
+    DateTime, DateTime::Format::Natural.
+
+    <http://www.rfc-editor.org/rfc/bcp/bcp47.txt>.
+
+AUTHOR
+    Toby Inkster <tobyink@cpan.org>.
+
+COPYRIGHT AND LICENCE
+    This software is copyright (c) 2011 by Toby Inkster.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
+DISCLAIMER OF WARRANTIES
+    THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
