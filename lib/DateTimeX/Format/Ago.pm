@@ -2,12 +2,11 @@ package DateTimeX::Format::Ago;
 
 use 5.010;
 use common::sense;
-use constant { FALSE => 0, TRUE => 1 };
 use utf8;
 
 BEGIN {
 	$DateTimeX::Format::Ago::AUTHORITY = 'cpan:TOBYINK';
-	$DateTimeX::Format::Ago::VERSION   = '0.001';
+	$DateTimeX::Format::Ago::VERSION   = '0.002';
 }
 
 use Carp 0 qw[];
@@ -93,12 +92,21 @@ sub parse_datetime
 	Carp::croak(sprintf("%s doesn't do parsing", __PACKAGE__));
 }
 
+sub _now
+{
+	if ($INC{'Time/HiRes.pm'})
+	{
+		return DateTime->from_epoch(epoch => Time::HiRes::time());
+	}
+	return DateTime->now;
+}
+
 sub format_datetime
 {
 	my ($self, $datetime) = @_;
 	$self = $self->new unless blessed($self);
 	
-	my $now     = DateTime->now;
+	my $now     = $self->_now;
 	my $delta   = $now - $datetime;
 	my %strings = $self->_strings;
 	
@@ -141,8 +149,7 @@ sub _strings
 	Carp::croak(sprintf("%s doesn't know about language '%s'", __PACKAGE__, $self->{language}));
 }
 
-TRUE;
-
+__PACKAGE__
 __END__
 
 =head1 NAME
@@ -193,13 +200,33 @@ Croaks. Don't use this.
 
 =back
 
-=head1 BUGS
+=head1 BUGS AND LIMITATIONS
+
+=head2 High resolution datetimes
+
+Imagine the time is currently 2020-01-01T12:00:00.200. If you try to format
+the time 2020-01-01T12:00:00.100 you'll get back the result "in the future".
+So what's going on? DateTimeX::Format::Ago figures out when "now" is using
+C<< DateTime->now >>, which rounds back to the nearest whole second.
+
+If you know you're going to be dealing with high resolution datetimes, and
+don't want to occasionally see "in the future" for times in the very recent
+past, then use L<Time::HiRes>.
+
+ use Time::HiRes qw();
+
+That's all you need to do. Merely loading it will give DateTimeX::Format::Ago
+an indication that you want it to use a more accurate idea of "now".
+
+=head2 Translations
+
+This module only supports a handful of languages. I'm seeking translations.
+Feel free to attach patches for other languages as bug reports.
+
+=head2 Reporting Bugs
 
 Please report any bugs to
 L<http://rt.cpan.org/Dist/Display.html?Queue=DateTimeX-Format-Ago>.
-
-I'm actively seeking translations. Feel free to attach patches for other
-languages as bug reports.
 
 =head1 SEE ALSO
 
@@ -213,7 +240,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2011 by Toby Inkster.
+This software is copyright (c) 2011-2012 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

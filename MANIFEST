@@ -31,4 +31,5 @@ t/01basic.t
 t/02roundtrip-natural.t
 t/03lang-en.t
 t/04lang-de.t
+t/05hires.t
 SIGNATURE                                Public-key signature (added by MakeMaker)
