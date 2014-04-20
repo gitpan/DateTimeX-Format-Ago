@@ -1,17 +1,18 @@
-package DateTimeX::Format::Ago;
-
 use 5.010;
-use common::sense;
+use strict;
+use warnings;
 use utf8;
+
+package DateTimeX::Format::Ago;
 
 BEGIN {
 	$DateTimeX::Format::Ago::AUTHORITY = 'cpan:TOBYINK';
-	$DateTimeX::Format::Ago::VERSION   = '0.002';
+	$DateTimeX::Format::Ago::VERSION   = '0.003';
 }
 
-use Carp 0 qw[];
-use DateTime 0 ;
-use Scalar::Util 0 qw[blessed];
+use Carp qw();
+use DateTime;
+use Scalar::Util qw(blessed);
 
 our %__;
 BEGIN {
@@ -24,7 +25,7 @@ BEGIN {
 		days      => ["%d days ago", "a day ago"],
 		hours     => ["%d hours ago", "an hour ago"],
 		minutes   => ["%d minutes ago", "a minute ago"],
-		};
+	};
 	$__{DE} = {
 		future    => "in der Zukunft",
 		recent    => "gerade jetzt",
@@ -34,7 +35,7 @@ BEGIN {
 		days      => ["vor %d Tagen", "vor einem Tag"],
 		hours     => ["vor %d Stunden", "vor einer Stunde"],
 		minutes   => ["vor %d Minuten", "vor einer Minute"],
-		};
+	};
 	$__{FR} = {
 		future    => "à l'avenir",
 		recent    => "récemment",
@@ -44,7 +45,17 @@ BEGIN {
 		days      => ["il y a %d jours", "il y a un jour"],
 		hours     => ["il y a %d heures", "il y a une heure"],
 		minutes   => ["il y a %d minutes", "il y a une minute"],
-		};
+	};
+	$__{KO} = {
+		future    => "잠시 후", 
+		recent    => "방금 전",
+		years     => ["%d년 전", "작년"],
+		months    => ["%d개월 전", "지난달"],
+		weeks     => ["%d주 전", "지난주"],
+		days      => ["%d일 전", "어제"],
+		hours     => ["%d시간 전", "1시간 전"],
+		minutes   => ["%d분 전", "1분 전"]
+	}; #"# fix for Scite syntax highlighter
 	
 	# These courtesy of Google Translate...
 	$__{ES} = {
@@ -56,7 +67,7 @@ BEGIN {
 		days      => ["hace %d días", "hace un día"],
 		hours     => ["hace %d horas", "hace una hora"],
 		minutes   => ["hace %d minutos", "hace un minuto"],
-		};
+	};
 	$__{PT} = {
 		future    => "no futuro",
 		recent    => "só agora",
@@ -66,7 +77,7 @@ BEGIN {
 		days      => ["%d days atrás", "há um dia"],
 		hours     => ["%d horas atrás", "há uma hora"],
 		minutes   => ["%d minutos atrás", "há um minuto"],
-		};
+	};
 
 	# ISO 639-2
 	$__{ENG} = $__{EN};
@@ -77,6 +88,7 @@ BEGIN {
 	$__{DEU} = $__{DE};
 	$__{SPA} = $__{ES};
 	$__{POR} = $__{PT};
+	$__{KOR} = $__{KO};
 }
 
 sub new
@@ -96,9 +108,9 @@ sub _now
 {
 	if ($INC{'Time/HiRes.pm'})
 	{
-		return DateTime->from_epoch(epoch => Time::HiRes::time());
+		return 'DateTime'->from_epoch(epoch => Time::HiRes::time());
 	}
-	return DateTime->now;
+	return 'DateTime'->now;
 }
 
 sub format_datetime
@@ -152,6 +164,10 @@ sub _strings
 __PACKAGE__
 __END__
 
+=pod
+
+=encoding utf-8
+
 =head1 NAME
 
 DateTimeX::Format::Ago - I should have written this module "3 years ago"
@@ -179,10 +195,10 @@ activities.
 Creates a formatter object for the given language (a BCP47 language code).
 If the language is omitted, extracts it from C<< $ENV{LANG} >>.
 
-Decent English ('en'), German ('de') and French ('fr') support is provided.
-Portuguese ('pt') and Castillian Spanish ('es') are also provided, but some
-of the strings were translated with Google Translate, so they might not be
-perfect.
+Decent English ('en'), German ('de'), French ('fr'), and Korean ('ko')
+support is provided. Portuguese ('pt') and Castillian Spanish ('es') are
+also provided, but some of the strings were translated with Google
+Translate, so they might not be perfect.
 
 =back
 
@@ -240,7 +256,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2011-2012 by Toby Inkster.
+This software is copyright (c) 2011-2012, 2014 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

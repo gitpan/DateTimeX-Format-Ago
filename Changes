@@ -4,11 +4,21 @@ DateTimeX-Format-Ago
 Created:      2011-11-08
 Home page:    <https://metacpan.org/release/DateTimeX-Format-Ago>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=DateTimeX-Format-Ago>
+Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
-0.002  2012-03-30
+0.003	2014-04-20
 
- - (Bugfix) Improved support for high resolution, very recent datetimes.
+ [ Packaging ]
+ - use Dist::Inkt
 
-0.001  2011-11-08  # Initial release
+ [ Other ]
+ - Added: Korean translation.
+   JEEN Lee++
+ - Eliminate dependency on common::sense.
 
+0.002	2012-03-30
 
+ [ Bug Fixes ]
+ - Improved support for high resolution, very recent datetimes.
+
+0.001	2011-11-08	Initial release
