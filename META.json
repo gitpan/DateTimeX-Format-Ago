@@ -45,7 +45,7 @@
    "provides" : {
       "DateTimeX::Format::Ago" : {
          "file" : "lib/DateTimeX/Format/Ago.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       }
    },
    "release_status" : "stable",
@@ -64,8 +64,9 @@
          "web" : "https://github.com/tobyink/p5-datetimex-format-ago"
       }
    },
-   "version" : "0.003",
+   "version" : "0.004",
    "x_contributors" : [
-      "JEEN Lee (JEEN) <jeen@cpan.org>"
+      "JEEN Lee (JEEN) <jeen@cpan.org>",
+      "Steven Haryanto (SHARYANTO) <sharyanto@cpan.org>"
    ]
 }

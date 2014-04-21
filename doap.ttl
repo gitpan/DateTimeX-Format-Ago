@@ -24,7 +24,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "DateTimeX-Format-Ago";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-001>, <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-002>, <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-003>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-001>, <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-002>, <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-003>, <http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-004>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-datetimex-format-ago>;
@@ -83,11 +83,32 @@
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/DateTimeX-Format-Ago-0.003.tar.gz>;
 	doap:revision        "0.003"^^xsd:string.
 
+<http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/v_0-004>
+	a                    doap:Version;
+	dc:identifier        "DateTimeX-Format-Ago-0.004"^^xsd:string;
+	dc:issued            "2014-04-21"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Addition;
+			rdfs:label "Indonesian translation.";
+			doap-changeset:blame <http://purl.org/NET/cpan-uri/person/sharyanto>;
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/DateTimeX-Format-Ago-0.004.tar.gz>;
+	doap:revision        "0.004"^^xsd:string.
+
 <http://purl.org/NET/cpan-uri/person/jeen>
 	a                    foaf:Person;
 	foaf:name            "JEEN Lee";
 	foaf:nick            "JEEN";
 	foaf:page            <https://metacpan.org/author/JEEN>.
+
+<http://purl.org/NET/cpan-uri/person/sharyanto>
+	a                    foaf:Person;
+	foaf:name            "Steven Haryanto";
+	foaf:nick            "SHARYANTO";
+	foaf:page            <https://metacpan.org/author/SHARYANTO>.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

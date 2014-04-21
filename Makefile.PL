@@ -22,7 +22,7 @@ my $meta = {
                         test => { requires => { "Test::More" => 0.96 } },
                       },
   "provides"       => {
-                        "DateTimeX::Format::Ago" => { file => "lib/DateTimeX/Format/Ago.pm", version => 0.003 },
+                        "DateTimeX::Format::Ago" => { file => "lib/DateTimeX/Format/Ago.pm", version => 0.004 },
                       },
   "release_status" => "stable",
   "resources"      => {
@@ -38,8 +38,11 @@ my $meta = {
                                         },
                         X_identifier => "http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/project",
                       },
-  "version"        => 0.003,
-  "x_contributors" => ["JEEN Lee (JEEN) <jeen\@cpan.org>"],
+  "version"        => 0.004,
+  "x_contributors" => [
+                        "JEEN Lee (JEEN) <jeen\@cpan.org>",
+                        "Steven Haryanto (SHARYANTO) <sharyanto\@cpan.org>",
+                      ],
 };
 
 my %dynamic_config;
