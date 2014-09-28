@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 use DateTimeX::Format::Ago;
 use Test::More tests => 200;
 
@@ -13,11 +14,11 @@ foreach my $unit (qw/years months weeks days hours minutes/)
 		years   => 25,
 		months  => 11,
 		weeks   => 3,  # don't want to fail tests in February 2013.
-		days    => 6,  
+		days    => 6,
 		hours   => 22, # don't want to fail due to daylight savings.
 		minutes => 59,
-		}->{$unit};
-
+	}->{$unit};
+	
 	my $when = DateTime->now->subtract($unit => 1);
 	is($ago->format_datetime($when), {
 		'years'    => 'a year ago',
@@ -26,8 +27,8 @@ foreach my $unit (qw/years months weeks days hours minutes/)
 		'days'     => 'a day ago',
 		'hours'    => 'an hour ago',
 		'minutes'  => 'a minute ago',
-		}->{$unit});
-
+	}->{$unit});
+	
 	for my $n (2..$max)
 	{
 		my $when = DateTime->now->subtract($unit => $n);

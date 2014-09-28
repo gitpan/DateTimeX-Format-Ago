@@ -7,7 +7,7 @@ my $meta = {
   "abstract"       => "I should have written this module \"3 years ago\"!",
   "author"         => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
   "dynamic_config" => 0,
-  "generated_by"   => "Dist::Inkt::Profile::TOBYINK version 0.015, CPAN::Meta::Converter version 2.120921",
+  "generated_by"   => "Dist::Inkt::Profile::TOBYINK version 0.023, CPAN::Meta::Converter version 2.140640",
   "keywords"       => [],
   "license"        => ["perl_5"],
   "meta-spec"      => {
@@ -22,7 +22,7 @@ my $meta = {
                         test => { requires => { "Test::More" => 0.96 } },
                       },
   "provides"       => {
-                        "DateTimeX::Format::Ago" => { file => "lib/DateTimeX/Format/Ago.pm", version => 0.004 },
+                        "DateTimeX::Format::Ago" => { file => "lib/DateTimeX/Format/Ago.pm", version => 0.005 },
                       },
   "release_status" => "stable",
   "resources"      => {
@@ -36,12 +36,13 @@ my $meta = {
                                           url  => "git://github.com/tobyink/p5-datetimex-format-ago.git",
                                           web  => "https://github.com/tobyink/p5-datetimex-format-ago",
                                         },
-                        X_identifier => "http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/project",
+                        x_identifier => "http://purl.org/NET/cpan-uri/dist/DateTimeX-Format-Ago/project",
                       },
-  "version"        => 0.004,
+  "version"        => 0.005,
   "x_contributors" => [
                         "JEEN Lee (JEEN) <jeen\@cpan.org>",
                         "Steven Haryanto (SHARYANTO) <sharyanto\@cpan.org>",
+                        "Richard Eitz (EITZ) <eitz\@cpan.org>",
                       ],
 };
 
